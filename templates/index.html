@@ -1,4 +1,33 @@
 {% extends "common.html" %}
 
-{% block title %}Screws Loose Website Thingy{% endblock %}
-{% block header %}Screws Loose Website Thingy{% endblock %}
+{% block title %}Milwaukee Shelter Wishlists{% endblock %}
+{% block header %}Milwaukee Shelter Wishlists{% endblock %}
+
+{% block main %}
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Item A</td>
+            <td>10</td>
+            <td>$5.00</td>
+        </tr>
+        <tr>
+            <td>Item B</td>
+            <td>20</td>
+            <td>$10.00</td>
+        </tr>
+        <tr>
+            <td>Item C</td>
+            <td>15</td>
+            <td>$7.50</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

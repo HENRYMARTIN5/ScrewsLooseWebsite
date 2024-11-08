@@ -80,15 +80,13 @@ def scrape_all_amazon():
         url = f"https://www.amazon.com/hz/wishlist/ls/{list_id}"
         yield runner.crawl(AmazonWishlistSpider, url, name, scraped_data)
     
-    # Return the results before stopping the reactor
     return scraped_data
 
 def main():
-    # Create a deferred to store our final results
     final_results = defer.Deferred()
     
     def write_results(results):
-        with open("test.json", "w") as f:
+        with open("amazon_results_DELETEME.json", "w") as f:
             json.dump(results, f, indent=4)
         return results
 
@@ -100,13 +98,11 @@ def main():
         print(f"An error occurred: {failure.value}")
         reactor.stop()
 
-    # Chain our operations
     d = scrape_all_amazon()
     d.addCallback(write_results)
     d.addCallback(stop_reactor)
     d.addErrback(handle_error)
     
-    # Start the reactor
     reactor.run()
 
 if __name__ == "__main__":
